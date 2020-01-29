@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Document</title>
+    <meta charset="utf-8">
+    <title>测试</title>
   </head>
   <body>
-    <button>點擊發起通知</button>
   </body>
   <script>
-    window.addEventListener("load", function() {
-      // 首先，讓我們檢查我們是否有許可權發出通知
-      // 如果沒有，我們就請求獲得許可權
-      Notification.requestPermission().then(function(permission) {
+    Notification.requestPermission().then(function(permission) {
       if(permission === 'granted'){
-          
+          console.log('用户允许通知');
       }else if(permission === 'denied'){
-
+          console.log('用户拒绝通知');
       }
     });
 
-
-
-      
-           var n = new Notification('這是一個測試提醒',{
-        body: '如收到代表測試成功',
- 
+    var n = new Notification('状态更新提醒',{
+        body: '你的朋友圈有3条新状态，快去查看吧',
+        tag: 'daxin',
+        icon: 'lalala.jpg',
+        requireInteraction: true,
+        data: {
+          url: 'https://www.baidu.com/'
+        }
     })
 
     n.onclick = function(){
@@ -37,4 +35,3 @@
     }, 3000);
   </script>
 </html>
-           
