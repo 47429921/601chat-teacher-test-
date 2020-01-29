@@ -19,13 +19,11 @@
         });
       }
 
-      var button = document.getElementsByTagName("button")[0];
 
-      button.addEventListener("click", function() {
-        // 如果使用者同意就建立一個通知
-        if (window.Notification && Notification.permission === "granted") {
+
+      
           var n = new Notification("這是一個測試提醒");
-        }
+
 
         // 如果使用者沒有選擇是否顯示通知
         // 注：因為在 Chrome 中我們無法確定 permission 屬性是否有值，因此
